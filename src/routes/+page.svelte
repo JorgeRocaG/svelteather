@@ -3,14 +3,14 @@
 	const options = {
 		method: 'GET',
 		headers: {
-			'X-RapidAPI-Key': 'e437ee0664msh6ca03a4b5d87dedp1d535fjsn41c22e771aa7',
-			'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+			'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
+    	'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
 		}
 	};
 
 	const weatherPromise = fetch(url, options)
 		.then((response) => response.json())
-		.then((data) => {
+		.then((response) => {
 			const { location, current } = response;
 			const { country, localtime, name } = location;
 			const { condition, humidity, feelslike_c, is_day, temp_c, wind_kph, wind_dir } = current;
